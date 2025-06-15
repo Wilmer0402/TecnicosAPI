@@ -6,7 +6,7 @@ namespace TecnicosAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TecnicosControllers(ITecnicosService tecnicosService) : ControllerBase
+    public class TecnicosController(ITecnicosService tecnicosService) : ControllerBase
     {
 
         // GET: api/Tecnicos

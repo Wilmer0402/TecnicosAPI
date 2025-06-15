@@ -1,5 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+using Tecnicos.Services.DI;
+using Tecnicos.Data.Context;
+using Microsoft.EntityFrameworkCore;
+  
 
+
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -7,14 +12,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.RegisterServices();
+
+//builder.Services
+//builder.Services.AddScoped<>
+
 var app = builder.Build();
 
+// Redirigir la raíz a la ruta de Swagger
+app.MapGet("/", () => Results.Redirect("/swagger/index.html"));
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+/*if (app.Environment.IsDevelopment())
+{*/
+app.UseSwagger();
+app.UseSwaggerUI();
+//}
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

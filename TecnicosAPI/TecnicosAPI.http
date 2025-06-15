@@ -1,0 +1,6 @@
+@TecnicosAPI_HostAddress = http://localhost:5004
+
+GET {{TecnicosAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

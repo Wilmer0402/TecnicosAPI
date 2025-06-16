@@ -16,7 +16,7 @@ namespace Tecnicos.Data.Migrations
                 {
                     TecnicoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombres = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Sueldo = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>

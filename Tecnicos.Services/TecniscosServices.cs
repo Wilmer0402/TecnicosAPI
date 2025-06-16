@@ -22,7 +22,7 @@ namespace Tecnicos.Services
                 {
                     TecnicosId = p.TecnicoId,
                     Nombres = p.Nombres,
-                    Monto = p.Monto
+                    Sueldo = p.Sueldo
                 }).FirstOrDefaultAsync();
 
             return tecnicos;
@@ -50,7 +50,7 @@ namespace Tecnicos.Services
             {
 
                 Nombres = tecnicosDto.Nombres,
-                Monto = tecnicosDto.Monto
+                Sueldo = tecnicosDto.Sueldo
             };
             contexto.Tecnico.Add(tecnico);
             var guardo = await contexto.SaveChangesAsync() > 0;
@@ -65,7 +65,7 @@ namespace Tecnicos.Services
             {
                 TecnicoId = tecnicosDto.TecnicosId,
                 Nombres = tecnicosDto.Nombres,
-                Monto = tecnicosDto.Monto
+                Sueldo = tecnicosDto.Sueldo
             };
             contexto.Update(tecnico);
             var modificado = await contexto.SaveChangesAsync() > 0;
@@ -94,7 +94,7 @@ namespace Tecnicos.Services
             {
                 TecnicosId = p.TecnicoId,
                 Nombres = p.Nombres,
-                Monto = p.Monto,
+                Sueldo = p.Sueldo,
             })
                 .Where(criterio)
                 .ToListAsync();

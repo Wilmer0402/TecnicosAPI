@@ -29,12 +29,12 @@ namespace Tecnicos.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TecnicoId"));
 
-                    b.Property<double>("Monto")
-                        .HasColumnType("float");
-
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Sueldo")
+                        .HasColumnType("float");
 
                     b.HasKey("TecnicoId");
 

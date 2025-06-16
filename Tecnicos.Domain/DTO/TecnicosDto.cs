@@ -12,6 +12,6 @@ namespace Tecnicos.Domain.DTO
 
         public string? Nombres { get; set; }
 
-        public double Monto { get; set; }
+        public double Sueldo { get; set; }
     }
 }

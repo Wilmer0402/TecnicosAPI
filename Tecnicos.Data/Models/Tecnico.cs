@@ -19,7 +19,7 @@ namespace Tecnicos.Data.Models
 
         [Required(ErrorMessage = "Campo Obligatorio")]
         [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Solo se permiten numeros")]
-        public double Monto { get; set; }
+        public double Sueldo { get; set; }
 
     }
 }

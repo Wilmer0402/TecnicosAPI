@@ -11,7 +11,7 @@ using Tecnicos.Data.Context;
 namespace Tecnicos.Data.Migrations
 {
     [DbContext(typeof(TecnicosContext))]
-    [Migration("20250615230035_Inicial")]
+    [Migration("20250616114213_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -32,12 +32,12 @@ namespace Tecnicos.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TecnicoId"));
 
-                    b.Property<double>("Monto")
-                        .HasColumnType("float");
-
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Sueldo")
+                        .HasColumnType("float");
 
                     b.HasKey("TecnicoId");
 

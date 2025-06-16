@@ -29,7 +29,7 @@ namespace TecnicosAPI.Controllers
         public async Task<IActionResult> PutTecnicos(int id, TecnicosDto tecnicosDto)
         {
 
-            if (id != tecnicosDto.TecnicosId)
+            if (id != tecnicosDto.TecnicoId)
             {
                 return BadRequest();
             }
@@ -44,7 +44,7 @@ namespace TecnicosAPI.Controllers
         {
             await tecnicosService.Guardar(tecnicosDto);
 
-            return CreatedAtAction("GetTecnicos", new { id = tecnicosDto.TecnicosId }, tecnicosDto);
+            return CreatedAtAction("GetTecnicos", new { id = tecnicosDto.TecnicoId }, tecnicosDto);
         }
 
         // DELETE: api/Tecnicos/5

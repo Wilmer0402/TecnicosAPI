@@ -8,9 +8,9 @@ namespace Tecnicos.Domain.DTO
 {
    public  class TecnicosDto
     {
-        public int TecnicosId { get; set; }
+        public int TecnicoId { get; set; }
 
-        public string? Nombres { get; set; }
+        public string? Nombre { get; set; }
 
         public double Sueldo { get; set; }
     }

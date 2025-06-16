@@ -20,8 +20,8 @@ namespace Tecnicos.Services
                 .Where(e => e.TecnicoId == id)
                 .Select(p => new TecnicosDto()
                 {
-                    TecnicosId = p.TecnicoId,
-                    Nombres = p.Nombre,
+                    TecnicoId = p.TecnicoId,
+                    Nombre = p.Nombre,
                     Sueldo = p.Sueldo
                 }).FirstOrDefaultAsync();
 
@@ -49,12 +49,12 @@ namespace Tecnicos.Services
             var tecnico = new Data.Models.Tecnico()
             {
 
-                Nombre = tecnicosDto.Nombres,
+                Nombre = tecnicosDto.Nombre,
                 Sueldo = tecnicosDto.Sueldo
             };
             contexto.Tecnico.Add(tecnico);
             var guardo = await contexto.SaveChangesAsync() > 0;
-            tecnicosDto.TecnicosId = tecnico.TecnicoId;
+            tecnicosDto.TecnicoId = tecnico.TecnicoId;
             return guardo;
         }
 
@@ -63,8 +63,8 @@ namespace Tecnicos.Services
             await using var contexto = await DbFactory.CreateDbContextAsync();
             var tecnico = new Data.Models.Tecnico()
             {
-                TecnicoId = tecnicosDto.TecnicosId,
-                Nombre = tecnicosDto.Nombres,
+                TecnicoId = tecnicosDto.TecnicoId,
+                Nombre = tecnicosDto.Nombre,
                 Sueldo = tecnicosDto.Sueldo
             };
             contexto.Update(tecnico);
@@ -81,7 +81,7 @@ namespace Tecnicos.Services
 
         public async Task<bool> Guardar(TecnicosDto tecnicos)
         {
-            if (!await Existe(tecnicos.TecnicosId))
+            if (!await Existe(tecnicos.TecnicoId))
                 return await Insertar(tecnicos);
             else
                 return await Modificar(tecnicos);
@@ -92,8 +92,8 @@ namespace Tecnicos.Services
             await using var contexto = await DbFactory.CreateDbContextAsync();
             return await contexto.Tecnico.Select(p => new TecnicosDto()
             {
-                TecnicosId = p.TecnicoId,
-                Nombres = p.Nombre,
+                TecnicoId = p.TecnicoId,
+                Nombre = p.Nombre,
                 Sueldo = p.Sueldo,
             })
                 .Where(criterio)

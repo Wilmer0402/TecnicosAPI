@@ -15,7 +15,7 @@ namespace Tecnicos.Data.Models
         [Required(ErrorMessage = "Campo Obligatorio")]
         [RegularExpression(@"^[a-zA-Z\s]+$",ErrorMessage ="Solo se Permiten Letras")]
 
-        public string? Nombres { get; set; }
+        public string? Nombre { get; set; }
 
         [Required(ErrorMessage = "Campo Obligatorio")]
         [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Solo se permiten numeros")]

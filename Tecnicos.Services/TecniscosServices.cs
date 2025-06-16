@@ -21,7 +21,7 @@ namespace Tecnicos.Services
                 .Select(p => new TecnicosDto()
                 {
                     TecnicosId = p.TecnicoId,
-                    Nombres = p.Nombres,
+                    Nombres = p.Nombre,
                     Sueldo = p.Sueldo
                 }).FirstOrDefaultAsync();
 
@@ -40,7 +40,7 @@ namespace Tecnicos.Services
         {
             await using var contexto = await DbFactory.CreateDbContextAsync();
             return await contexto.Tecnico
-                .AnyAsync(e => e.TecnicoId != id && e.Nombres.ToLower().Equals(nombres.ToLower()));
+                .AnyAsync(e => e.TecnicoId != id && e.Nombre.ToLower().Equals(nombres.ToLower()));
         }
 
         private async Task<bool> Insertar(TecnicosDto tecnicosDto)
@@ -49,7 +49,7 @@ namespace Tecnicos.Services
             var tecnico = new Data.Models.Tecnico()
             {
 
-                Nombres = tecnicosDto.Nombres,
+                Nombre = tecnicosDto.Nombres,
                 Sueldo = tecnicosDto.Sueldo
             };
             contexto.Tecnico.Add(tecnico);
@@ -64,7 +64,7 @@ namespace Tecnicos.Services
             var tecnico = new Data.Models.Tecnico()
             {
                 TecnicoId = tecnicosDto.TecnicosId,
-                Nombres = tecnicosDto.Nombres,
+                Nombre = tecnicosDto.Nombres,
                 Sueldo = tecnicosDto.Sueldo
             };
             contexto.Update(tecnico);
@@ -93,7 +93,7 @@ namespace Tecnicos.Services
             return await contexto.Tecnico.Select(p => new TecnicosDto()
             {
                 TecnicosId = p.TecnicoId,
-                Nombres = p.Nombres,
+                Nombres = p.Nombre,
                 Sueldo = p.Sueldo,
             })
                 .Where(criterio)

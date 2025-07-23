@@ -11,7 +11,7 @@ using Tecnicos.Data.Context;
 namespace Tecnicos.Data.Migrations
 {
     [DbContext(typeof(TecnicosContext))]
-    [Migration("20250616174110_Inicial")]
+    [Migration("20250723175852_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -23,6 +23,30 @@ namespace Tecnicos.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Tecnicos.Data.Models.Sistemas", b =>
+                {
+                    b.Property<int>("SistemaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SistemaId"));
+
+                    b.Property<double>("Costo")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SistemaId");
+
+                    b.ToTable("Sistemas");
+                });
 
             modelBuilder.Entity("Tecnicos.Data.Models.Tecnico", b =>
                 {

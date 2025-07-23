@@ -12,5 +12,6 @@ namespace Tecnicos.Data.Context
         public TecnicosContext(DbContextOptions<TecnicosContext> options) : base(options) { }
 
         public DbSet<Models.Tecnico> Tecnico{ get; set; }
+        public DbSet<Models.Sistemas> Sistemas { get; set; }
     }
 }

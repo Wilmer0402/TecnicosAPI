@@ -16,6 +16,7 @@ namespace Tecnicos.Services.DI
         {
             services.RegisterDbContextFactory();
             services.AddScoped<ITecnicosService, TecnicosServices>();
+            services.AddScoped<ISistemasService, SistemasService>();
             return services;
         }
     }
